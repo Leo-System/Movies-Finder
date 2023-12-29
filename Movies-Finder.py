@@ -31,9 +31,9 @@ resultados = int(response.json()['entries'])
 
 n=0
 
+print(f"\nNumber of results: {resultados}\n")
+
 while n < resultados:
     nome = response.json()['results'][n]['titleText']['text']
     print(nome)
     n=n+1
-
-print(f"\nNumber of results: {resultados}\n")
