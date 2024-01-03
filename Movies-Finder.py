@@ -27,13 +27,12 @@ headers = {
 
 response = requests.get(url, headers=headers, params=querystring)
 
-resultados = int(response.json()['entries'])
+quantidade_de_resultados = int(response.json()['entries'])
 
-n=0
+print(f"\nNumber of results: {quantidade_de_resultados}\n")
 
-print(f"\nNumber of results: {resultados}\n")
+lista_de_resultados = response.json()['results']
 
-while n < resultados:
-    nome = response.json()['results'][n]['titleText']['text']
+for resultado in lista_de_resultados:
+    nome = resultado['titleText']['text']
     print(nome)
-    n=n+1
